@@ -1,0 +1,15 @@
+Z:\Hacking\Projets\TheOffensiveDevelopmentProject\Basics\Csharp\ShellcodeRunner\bin\Debug\net8.0\ShellcodeRunner.exe
+Z:\Hacking\Projets\TheOffensiveDevelopmentProject\Basics\Csharp\ShellcodeRunner\bin\Debug\net8.0\ShellcodeRunner.deps.json
+Z:\Hacking\Projets\TheOffensiveDevelopmentProject\Basics\Csharp\ShellcodeRunner\bin\Debug\net8.0\ShellcodeRunner.runtimeconfig.json
+Z:\Hacking\Projets\TheOffensiveDevelopmentProject\Basics\Csharp\ShellcodeRunner\bin\Debug\net8.0\ShellcodeRunner.dll
+Z:\Hacking\Projets\TheOffensiveDevelopmentProject\Basics\Csharp\ShellcodeRunner\bin\Debug\net8.0\ShellcodeRunner.pdb
+Z:\Hacking\Projets\TheOffensiveDevelopmentProject\Basics\Csharp\ShellcodeRunner\obj\Debug\net8.0\ShellcodeRunner.GeneratedMSBuildEditorConfig.editorconfig
+Z:\Hacking\Projets\TheOffensiveDevelopmentProject\Basics\Csharp\ShellcodeRunner\obj\Debug\net8.0\ShellcodeRunner.AssemblyInfoInputs.cache
+Z:\Hacking\Projets\TheOffensiveDevelopmentProject\Basics\Csharp\ShellcodeRunner\obj\Debug\net8.0\ShellcodeRunner.AssemblyInfo.cs
+Z:\Hacking\Projets\TheOffensiveDevelopmentProject\Basics\Csharp\ShellcodeRunner\obj\Debug\net8.0\ShellcodeRunner.csproj.CoreCompileInputs.cache
+Z:\Hacking\Projets\TheOffensiveDevelopmentProject\Basics\Csharp\ShellcodeRunner\obj\Debug\net8.0\ShellcodeRunner.sourcelink.json
+Z:\Hacking\Projets\TheOffensiveDevelopmentProject\Basics\Csharp\ShellcodeRunner\obj\Debug\net8.0\ShellcodeRunner.dll
+Z:\Hacking\Projets\TheOffensiveDevelopmentProject\Basics\Csharp\ShellcodeRunner\obj\Debug\net8.0\refint\ShellcodeRunner.dll
+Z:\Hacking\Projets\TheOffensiveDevelopmentProject\Basics\Csharp\ShellcodeRunner\obj\Debug\net8.0\ShellcodeRunner.pdb
+Z:\Hacking\Projets\TheOffensiveDevelopmentProject\Basics\Csharp\ShellcodeRunner\obj\Debug\net8.0\ShellcodeRunner.genruntimeconfig.cache
+Z:\Hacking\Projets\TheOffensiveDevelopmentProject\Basics\Csharp\ShellcodeRunner\obj\Debug\net8.0\ref\ShellcodeRunner.dll
