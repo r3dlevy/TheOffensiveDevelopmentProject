@@ -1,1 +1,6 @@
 *.vs
+*.exe
+*Debug
+*Release
+*obj
+*bin
