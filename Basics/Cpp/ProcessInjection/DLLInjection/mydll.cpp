@@ -6,7 +6,7 @@ BOOL APIENTRY DllMain(HMODULE hModule,  DWORD  nReason, LPVOID lpReserved) {
   case DLL_PROCESS_ATTACH:
     MessageBox(
       NULL,
-      "Meow from evil.dll!",
+      "Jesus Loves You!",
       "=^..^=",
       MB_OK
     );

